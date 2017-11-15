@@ -42,6 +42,7 @@ const initialCalendarState = {
 }
 
 function calendar (state = initialCalendarState, action) {
+  console.log('reducer invoked')
   const { day, recipe, meal } = action
 
   switch (action.type) {
@@ -50,7 +51,7 @@ function calendar (state = initialCalendarState, action) {
         ...state,
         [day]: {
           ...state[day],
-          [meal]: recipe.label,
+          [meal]: recipe.label
         }
       }
     case REMOVE_FROM_CALENDAR :
@@ -58,7 +59,7 @@ function calendar (state = initialCalendarState, action) {
         ...state,
         [day]: {
           ...state[day],
-          [meal]: null,
+          [meal]: null
         }
       }
     default :
